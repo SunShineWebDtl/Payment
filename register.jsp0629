@@ -1,0 +1,149 @@
+/*
+ * register.jsp0629 
+ * Copyright (C) 2011-2035 Shanghai Fuyi Software Development Co., Ltd 
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+﻿
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    
+    <title>复旦天翼支付平台登录</title>
+    
+	<link href="resource/css/css.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="js/extjs/resources/css/ext-all.css"></link>
+    <link rel="stylesheet" type="text/css" href="js/extjs/resources/css/ext-patch.css"></link>
+	<script type="text/javascript" src="js/extjs/adapter/ext/ext-base.js"></script>
+	<script type="text/javascript" src="js/extjs/ext-all-debug.js"></script>
+	<script type="text/javascript" src="js/extjs/src/locale/ext-lang-zh_CN.js"></script>
+	
+	<!--jquery的js类库  -->
+	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.form.js"></script>
+	<!-- 页面的js -->
+	<script type="text/javascript" src="js/common/common.js"></script>
+	<script type="text/javascript" src="js/common/myExtComponent.js"></script>
+	<script type="text/javascript" src="js/pay/register.js"></script>
+	<style type="text/css">
+		.inputColor {
+			color:B29DA1;
+		}
+	</style>
+  </head>
+  
+  <body>
+  	<s:form id="frm" action="login_register" theme="simple">
+    <table width="100%" height="100%"  border="0" cellspacing="0" cellpadding="2">
+		<tr>
+	      <td align="center" valign="top" background="resource/images/xu.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#A9C5ED">
+	    	<tr>
+	      		<td height="40" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#A9C5ED">
+		          <tr>
+		            <td height="30" colspan="6" background="images/head_bg1.gif" class="td02"><strong>注册信息</strong></td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<font color="red">*</font><s:text name="payment.username"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="userid" name="userinfo.userid"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<font color="red">*</font><s:text name="payment.name"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="username" name="userinfo.username"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<font color="red">*</font><s:text name="payment.password"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:password id="password" name="userinfo.password"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<font color="red">*</font><s:text name="payment.repeatpassword"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:password id="repassword"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<font color="red">*</font><s:text name="payment.email"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="email" name="userinfo.email"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		           		 <font color="red">*</font><s:text name="payment.tel"/>：
+		           	</td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="phone" name="userinfo.phone"/>
+		            </td>
+		          </tr> 
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		           		<font color="red">*</font><s:text name="payment.id"/>：
+		           	</td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="idcardno" name="userinfo.idcardno" onblur="calcBirthday(this.value)"/>
+		            </td>
+		          </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+		            	<s:text name="payment.dateofbirth"/>：
+		            </td>
+		            <td width="50%" class="td06">
+		            	<s:textfield id="birth" name="userinfo.birth" cssClass="inputColor" readonly="true"/>
+		            </td>
+		          </tr>
+
+		          <tr  bgcolor="#ffffff" >
+                    <td width="50%" class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="right">
+                        <s:text name="payment.company"/>：
+                    </td>
+                    <td width="50%" class="td06">
+                        <s:textfield id="company" name="userinfo.company"/>
+                    </td>
+                  </tr>
+		          <tr  bgcolor="#ffffff" >
+		            <td class="td05" style="padding-right:16px; background-image: none; background-color: #EEF8FD; height:22 px;" align="center" colspan="4">
+		            	<s:submit cssClass="but2" onclick="return doSaveEvent();" value="%{getText('payment.submission')}"/>
+		            </td>
+		          </tr></table>
+		        </td>
+	    	</tr>
+									<p align="left">
+							<span style="font-weight:bold;color:red;">特别注意：</span>
+						</p>
+						<P align="left">&nbsp;&nbsp;&nbsp;1、本注册功能仅供交纳会议注册费等费用的校外单位人员使用。</p>
+						<p align="left">&nbsp;&nbsp;&nbsp;2、	校内老师、学生（包括在校学生和暂未到校报到的新生）<span style="color:red;font-size:15px;">请勿注册</span>，可返回主界面点击“校内人员登录”按钮，使用jAccount账号登录。</p>
+			</table>  
+	      </td>
+	  	</tr>
+	</table>
+	</s:form>
+  </body>
+</html>
